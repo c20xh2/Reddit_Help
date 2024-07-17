@@ -1,0 +1,14 @@
+# First install Scrapy:
+
+py -m pip install scrapy
+
+# Then add the domains you want to visit in the runner.py file on line 3 ex:
+domains = ['domain1.com', 'domain2.com' ]
+
+# Run the spiders using:
+py runner.py
+
+# The spiders will write the results in files named 
+emails_domain1.com.json
+emails_domain2.com.json
+...

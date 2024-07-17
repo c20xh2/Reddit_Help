@@ -16,7 +16,6 @@ class EmailSpider(CrawlSpider):
         'DOWNLOAD_DELAY': 1,  # Delay between requests to avoid overloading the server
         'CONCURRENT_REQUESTS_PER_DOMAIN': 8,
         'FEED_FORMAT': 'json',
-        'FEED_URI': 'emails.json'
     }
 
     # Define rules for following links
@@ -28,6 +27,8 @@ class EmailSpider(CrawlSpider):
         domain = kwargs.pop('domain', '')  # Get the domain from arguments
         if domain:
             self.allowed_domains = [domain]
+
+            
             self.start_urls = [f'http://{domain}', f'https://{domain}']
         super(EmailSpider, self).__init__(*args, **kwargs)
 
